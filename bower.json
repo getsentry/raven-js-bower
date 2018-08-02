@@ -1,10 +1,13 @@
 {
   "name": "raven-js",
-  "version": "3.25.2",
+  "version": "3.26.1",
   "dependencies": {},
   "main": "dist/raven.js",
   "ignore": [
     "**/.*",
+    ".travis",
+    ".vscode",
+    ".github",
     "AUTHORS",
     "CHANGELOG.md",
     "CONTRIBUTING.md",
@@ -12,9 +15,13 @@
     "Makefile",
     "README.md",
     "docs",
+    "packages",
     "package.json",
     "example",
     "test",
-    "dist/sri.json"
+    "dist/sri.json",
+    "yarn.lock",
+    "tsconfig.json",
+    "lerna.json"
   ]
 }
