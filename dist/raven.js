@@ -1,4 +1,4 @@
-/*! Raven.js 3.12.2 (d911cb7) | github.com/getsentry/raven-js */
+/*! Raven.js 3.13.0 (14f0148) | github.com/getsentry/raven-js */
 
 /*
  * Includes TraceKit
@@ -116,7 +116,8 @@ function Raven() {
         collectWindowErrors: true,
         maxMessageLength: 0,
         stackTraceLimit: 50,
-        autoBreadcrumbs: true
+        autoBreadcrumbs: true,
+        sampleRate: 1
     };
     this._ignoreOnError = 0;
     this._isRavenInstalled = false;
@@ -151,7 +152,7 @@ Raven.prototype = {
     // webpack (using a build step causes webpack #1617). Grunt verifies that
     // this value matches package.json during build.
     //   See: https://github.com/getsentry/raven-js/issues/465
-    VERSION: '3.12.2',
+    VERSION: '3.13.0',
 
     debug: false,
 
@@ -1553,7 +1554,13 @@ Raven.prototype = {
             return;
         }
 
-        this._sendProcessedPayload(data);
+        if (typeof globalOptions.sampleRate === 'number') {
+            if (Math.random() < globalOptions.sampleRate) {
+                this._sendProcessedPayload(data);
+            }
+        } else {
+            this._sendProcessedPayload(data);
+        }
     },
 
     _getUuid: function () {
