@@ -1,12 +1,12 @@
-/*! Raven.js 3.26.4 (7d7202b) | github.com/getsentry/raven-js */
+/*! Raven.js 3.27.0 (200cffcc) | github.com/getsentry/raven-js */
 
 /*
  * Includes TraceKit
  * https://github.com/getsentry/TraceKit
  *
- * Copyright 2018 Matt Robenolt and other contributors
- * Released under the BSD license
- * https://github.com/getsentry/raven-js/blob/master/LICENSE
+ * Copyright (c) 2018 Sentry (https://sentry.io) and individual contributors.
+ * All rights reserved.
+ * https://github.com/getsentry/sentry-javascript/blob/master/packages/raven-js/LICENSE
  *
  */
 
@@ -295,7 +295,6 @@ function Raven() {
   };
   this._fetchDefaults = {
     method: 'POST',
-    keepalive: true,
     // Despite all stars in the sky saying that Edge supports old draft syntax, aka 'never', 'always', 'origin' and 'default
     // https://caniuse.com/#feat=referrer-policy
     // It doesn't. And it throw exception instead of ignoring this parameter...
@@ -336,7 +335,7 @@ Raven.prototype = {
   // webpack (using a build step causes webpack #1617). Grunt verifies that
   // this value matches package.json during build.
   //   See: https://github.com/getsentry/raven-js/issues/465
-  VERSION: '3.26.4',
+  VERSION: '3.27.0',
 
   debug: false,
 
@@ -1074,7 +1073,7 @@ Raven.prototype = {
     )
       return;
 
-    options = Object.assign(
+    options = objectMerge(
       {
         eventId: this.lastEventId(),
         dsn: this._dsn,
