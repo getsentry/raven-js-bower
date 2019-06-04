@@ -1,10 +1,10 @@
-/*! Raven.js 3.27.0 (200cffcc) | github.com/getsentry/raven-js */
+/*! Raven.js 3.27.2 (6d91db933) | github.com/getsentry/raven-js */
 
 /*
  * Includes TraceKit
  * https://github.com/getsentry/TraceKit
  *
- * Copyright (c) 2018 Sentry (https://sentry.io) and individual contributors.
+ * Copyright (c) 2019 Sentry (https://sentry.io) and individual contributors.
  * All rights reserved.
  * https://github.com/getsentry/sentry-javascript/blob/master/packages/raven-js/LICENSE
  *
